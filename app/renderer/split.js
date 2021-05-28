@@ -3,14 +3,19 @@ const $ = window.jQuery = require('./jquery-2.2.3.min.js');
 const editor = ace.edit("editor");
 
 const widthLimit = 100;
+const LIMIT = 100;
 
 $(document).ready(() => {
     $(".split").each(function() {
 
         var $split = $(this);
-        var $left = $split.prev();
-        var $right = $split.next();
+        //var $left = $split.prev();
+        var $top = $split.prev();
+        //var $right = $split.next();
+        var $bottom = $split.nextAll();
         var $parent = $split.parent();
+
+        console.log($bottom)
 
         var $grip = $split.append(`<div class="grip"></div>`);
 
@@ -22,7 +27,24 @@ $(document).ready(() => {
         });
         $(document).mousemove(function(event) {
             if( isDragging ) {
-                var x0 = $parent.offset().left;
+
+                var y = event.pageY;
+                var height = $parent.height();
+
+                if( y < LIMIT )
+                    y = LIMIT;
+                if( y > height - LIMIT) 
+                    y = height - LIMIT;
+
+                var percent = 100 * (y / height);
+                var fromTop = percent + "%";
+                var fromBottom = (100-percent) + "%";
+
+                $top.css({"bottom": fromBottom});
+                $bottom.css({"top": fromTop});
+                $split.css({"top": fromTop});                
+
+                /*var x0 = $parent.offset().left;
                 var x = event.pageX - x0;
                 var width = $parent.width();
 
@@ -37,7 +59,7 @@ $(document).ready(() => {
 
                 $left.css({"right": fromRight, "width": fromLeft});
                 $right.css({"left": fromLeft, "width": fromRight});
-                $split.css("left", fromLeft);
+                $split.css("left", fromLeft);*/
 
                 // Hack... not sure of a better way to do this
                 // (always resize editor since both the centre split

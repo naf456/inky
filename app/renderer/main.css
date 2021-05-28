@@ -17,10 +17,10 @@ div {
   position: absolute;
   display: block;
   overflow: visible;
-  width: 1px;
-  top: 0;
-  bottom: 0;
-  left: 50%;
+  height: 1px;
+  top: 50%;
+  left: 0;
+  right: 0;
   background: #DDD;
   z-index: 10;
 }
@@ -28,14 +28,14 @@ div {
 .split .grip {
   position: absolute;
   display: block;
-  width: 10px;
-  left: -5px;
-  right: -5px;
-  top: 0;
-  bottom: 0;
+  height: 10px;
+  top: -5px;
+  bottom: -5px;
+  left: 0;
+  right: 0;
   z-index: 50;
   background: none;
-  cursor: col-resize;
+  cursor: row-resize;
 }
 
 #toolbar {
@@ -368,7 +368,7 @@ img.issue-icon.warning {
 .sidebar .footer.showingForm {
   height: 120px;
   bottom: 0;
-  /*transition: height 3s;/*0.2s;*/*/
+  /*transition: height 3s;/*0.2s;*/
 }
 
 
@@ -504,9 +504,9 @@ img.issue-icon.warning {
   display: block;
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 50%;
   left: 0;
-  right: 50%;
+  right: 0;
 }
 
 #editor .ace-error {
@@ -572,10 +572,10 @@ img.issue-icon.warning {
 #player {
   display: block;
   position: absolute;
-  top: 0;
+  top: 50%;
   bottom: 0;
   right: 0;
-  left: 50%;
+  left: 0;
 
   font-family: Verdana, Geneva, sans-serif;
   font-weight: lighter;

@@ -65,6 +65,10 @@ $(document).ready(() => {
             InkProject.currentProject.mainInk.setValue(testInk);
         }
     }
+
+    $(".ace_gutter").css({"display":"None"});
+    $(".ace_text-input").css({"left":0});
+    $(".ace_scroller").css({"left":0});
 });
 
 function gotoIssue(issue) {

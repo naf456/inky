@@ -9,8 +9,8 @@ const Menu = electron.Menu;
 const i18n = require("./i18n/i18n.js");
 
 const electronWindowOptions = {
-  width: 1300,
-  height: 730,
+  width: 500,
+  height: 720,
   minWidth: 350,
   minHeight: 250,
   titleBarStyle: 'hidden',
